@@ -21,7 +21,7 @@
 		<br>
         <input type="text" id="estado" placeholder="Estado" size="3">
 		<br>
-		<ol id="lista"></ol>
+		<ul id="lista"></ul>
 
     </form>
 
@@ -34,13 +34,13 @@
             .then(resposta => resposta.json())
             .then(dados => {
                 atribuivalor('estado', dados.state)
-				console.log(dados)
-				const lista = document.getElementById('lista')
-				dados.cities.forEach(element => {
-					li = document.createElement('li')
-					li.innerHTML = element
-					lista.appendChild(li)
-				});
+		const lista = document.getElementById('lista')
+		lista.innerHTML = ''
+		dados.cities.forEach(element => {
+			li = document.createElement('li')
+			li.innerHTML = element
+			lista.appendChild(li)
+			});
             })
             function atribuivalor(id, valor) {
                 document.querySelector(`#${id}`).value = valor
